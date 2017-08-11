@@ -14,7 +14,6 @@ from .base_network import BaseNetwork
 
 floatX = theano.config.floatX
 
-
 class Network(BaseNetwork):
 
     def __init__(self, train_list_raw, test_list_raw, png_folder, batch_size, l2, mode, rnn_num_units, **kwargs):

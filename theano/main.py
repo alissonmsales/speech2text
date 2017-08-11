@@ -10,9 +10,9 @@ print("==> parsing input arguments")
 parser = argparse.ArgumentParser()
 
 # TODO: add argument to choose training set
-parser.add_argument('--network', type=str, default="rnn",
+parser.add_argument('--network', type=str, default="tc_net_mod",
                     help='embeding size (50, 100, 200, 300 only)')
-parser.add_argument('--epochs', type=int, default=500,
+parser.add_argument('--epochs', type=int, default=3,
                     help='number of epochs to train')
 parser.add_argument('--load_state', type=str, default="",
                     help='state file path')
@@ -40,7 +40,7 @@ parser.add_argument('--forward_cnt', type=int, default=1,
                     help='if forward pass is nondeterministic, '
                          'then how many forward passes are averaged')
 
-parser.set_defaults(batch_norm=True)
+parser.set_defaults(batch_norm=False)
 args = parser.parse_args()
 print(args)
 
@@ -100,7 +100,7 @@ def do_epoch(mode, epoch):
     batches_per_epoch = network.get_batches_per_epoch(mode)
     all_prediction = []
 
-    for i in range(0, batches_per_epoch):
+    for i in range(0, int(batches_per_epoch)):
         step_data = network.step(i, mode)
         prediction = step_data["prediction"]
         answers = step_data["answers"]
