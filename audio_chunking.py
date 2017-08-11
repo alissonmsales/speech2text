@@ -20,4 +20,5 @@ for x in range(n, num_pdco):
     file.export("/media/alissonsales/Files/base_dados/pt_05/"+nome,
                 format="mp3")
     ini += 9980
+
     fim += 9980
