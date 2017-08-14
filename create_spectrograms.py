@@ -101,7 +101,7 @@ def plotstft(audiopath, binsize=2 ** 10, plotpath=None, colormap="gray", channel
 
 from os import listdir
 from os.path import isfile, join
-mypath = "/media/alissonsales/Files/base_dados/pt_05/"
+mypath = "/media/alissonsales/Files/base_dados/pt_05/temp/"
 onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
 #file = open('trainingData.csv', 'r')
 #for iter, line in enumerate(
@@ -112,8 +112,8 @@ onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
 
 for file in onlyfiles:
     wavfile = 'tmp.wav'
-    os.system('mpg123 -w ' + '/media/alissonsales/Files/base_dados/pt_05/'+ wavfile
-              + ' /media/alissonsales/Files/base_dados/pt_05/'+file)# + filepath
+    os.system('mpg123 -w ' + '/media/alissonsales/Files/base_dados/pt_05/temp/'+ wavfile
+              + ' /media/alissonsales/Files/base_dados/pt_05/temp/'+file)# + filepath
     """
     for augmentIdx in range(0, 20):
         alpha = np.random.uniform(0.9, 1.1)
@@ -127,7 +127,7 @@ for file in onlyfiles:
     # also we don't crop 9s part from the speech
     filename = file.split(".")[0]
     #wavfile = '00001_en.wav'
-    plotstft('/media/alissonsales/Files/base_dados/pt_05/'+wavfile, channel=0,
+    plotstft('/media/alissonsales/Files/base_dados/pt_05/temp/'+wavfile, channel=0,
              name='/media/alissonsales/Files/base_dados/pt_spec/' + filename + '.png', alpha=1.0)
-    os.remove('/media/alissonsales/Files/base_dados/pt_05/'+wavfile)
+    os.remove('/media/alissonsales/Files/base_dados/pt_05/temp/'+wavfile)
     print("processed: ", file)
