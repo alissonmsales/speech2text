@@ -1,5 +1,5 @@
-#import cPickle as pickle
-import _pickle as pickle
+import cPickle as pickle
+#import _pickle as pickle
 
 
 class BaseNetwork:

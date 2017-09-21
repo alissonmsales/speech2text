@@ -64,13 +64,14 @@ print("==> %d validation examples" % len(test_list_raw))
 train_listfile.close()
 test_listfile.close()
 
+
+
 args_dict = dict(args._get_kwargs())
 args_dict['train_list_raw'] = train_list_raw
 args_dict['test_list_raw'] = test_list_raw
 
 # mudar caminho da pasta com os png
 args_dict['png_folder'] = "/media/alissonsales/Files/base_dados/spec_all/"
-
 
 print("==> using network %s" % args.network)
 network_module = importlib.import_module("networks." + args.network)
@@ -143,7 +144,7 @@ def do_epoch(mode, epoch):
                          args.load_state[args.load_state.rfind('/')+1:] + ".csv"
         with open(pred_filename, 'w') as pred_csv:
             for x in all_prediction:
-                print >> pred_csv, ",".join([("%.6f" % prob) for prob in x])
+                print(pred_csv, ",".join([("%.6f" % prob) for prob in x]))
                     
     return avg_loss / batches_per_epoch
 
