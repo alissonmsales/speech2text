@@ -101,8 +101,8 @@ def plotstft(audiopath, binsize=2 ** 10, plotpath=None, colormap="gray", channel
 
 from os import listdir
 from os.path import isfile, join
-mypath = "/media/alissonsales/Files/base_dados/pt_05/temp/"
-onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
+#mypath = "/media/alissonsales/Files/base_dados/pt_05/temp/"
+#onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
 #file = open('trainingData.csv', 'r')
 #for iter, line in enumerate(
 #        file.readlines()[1:]):  # first line of traininData.csv is header (only for trainingData.csv)
@@ -110,24 +110,24 @@ onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
 #    filename = filepath[:-4]
 
 
-for file in onlyfiles:
-    wavfile = 'tmp.wav'
-    os.system('mpg123 -w ' + '/media/alissonsales/Files/base_dados/pt_05/temp/'+ wavfile
-              + ' /media/alissonsales/Files/base_dados/pt_05/temp/'+file)# + filepath
-    """
-    for augmentIdx in range(0, 20):
-        alpha = np.random.uniform(0.9, 1.1)
-        offset = np.random.randint(90)
-        plotstft(wavfile, channel=0, name='/home/brainstorm/data/language/train/pngaugm/'
-        +filename+'.'+str(augmentIdx)+'.png',
-                 alpha=alpha, offset=offset)
-    """
+#for file in onlyfiles:
+#wavfile = 'tmp2.wav'
+#os.system('mpg123 -w ' + '/home/alissonsales/PycharmProjects/speech2text/'+ wavfile
+#              + ' /home/alissonsales/PycharmProjects/speech2text/1_joao0_0.wav')# + filepath
+"""
+for augmentIdx in range(0, 20):
+    alpha = np.random.uniform(0.9, 1.1)
+    offset = np.random.randint(90)
+    plotstft(wavfile, channel=0, name='/home/brainstorm/data/language/train/pngaugm/'
+    +filename+'.'+str(augmentIdx)+'.png',
+             alpha=alpha, offset=offset)
+"""
     # we create only one spectrogram for each speach sample
     # we don't do vocal tract length perturbation (alpha=1.0)
     # also we don't crop 9s part from the speech
-    filename = file.split(".")[0]
+#    filename = file.split(".")[0]
     #wavfile = '00001_en.wav'
-    plotstft('/media/alissonsales/Files/base_dados/pt_05/temp/'+wavfile, channel=0,
-             name='/media/alissonsales/Files/base_dados/pt_spec/' + filename + '.png', alpha=1.0)
-    os.remove('/media/alissonsales/Files/base_dados/pt_05/temp/'+wavfile)
-    print("processed: ", file)
+plotstft('/home/alissonsales/PycharmProjects/speech2text/joao.wav', channel=0,
+         name='/home/alissonsales/PycharmProjects/speech2text/1_joao0_0.png', alpha=1.0)
+os.remove('/media/alissonsales/Files/base_dados/pt_05/temp/'+wavfile)
+    #print("processed: ", file)

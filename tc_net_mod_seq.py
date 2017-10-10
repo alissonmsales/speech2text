@@ -102,7 +102,7 @@ model.add(MaxPooling2D(pool_size=(3, 3), strides=2, padding='same'))
 # model.add(MaxPooling2D(pool_size=(3, 3)))
 if (batch_norm):
     model.add(BatchNormalization())
-model.summary()
+
 # CONV-RELU-POOL 6
 model.add(Conv2D(256, (3, 3), strides=1, activation='relu'))
 model.add(MaxPooling2D(pool_size=(3, 3), strides=2, padding='same'))
@@ -120,7 +120,7 @@ if (dropout > 0):
 
 # Last layer: classification
 model.add(Dense(3, activation='softmax'))
-
+model.summary()
 # self.params = layers.get_all_params(network, trainable=True)
 # self.prediction = layers.get_output(network)
 sgd = optimizers.SGD(lr=0.003, decay=1e-6, momentum=0.9, nesterov=True)
